@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List with Filter</title>
+    <style>
+
+        .header-container {
+            text-align: center;
+            /* margin-top: 20px; */
+            /* margin-bottom: 0px; */
+        }
+
+        .logo {
+            max-width: 200px; /* Adjust the logo size */
+            height: 70px;
+            margin-top: 10px;
+            /* margin-bottom: 10px; */
+
+        }
+
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ff8c00;
+            background-color: #fff;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: flex-end; /* Align search to the right */
+            margin: 0px; /* Optional: Add some space from edges */
+            padding-right: 95px;
+        }
+
+        /* Ensure search input is styled properly */
+        #searchInput {
+            padding: 8px;
+            font-size: 10px;
+            width: 150px;
+        }
+
+        
+
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 85%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1.5px solid #000000;
+            padding: 0px;
+            text-align: center;
+            overflow: hidden;
+        }   
+        th {
+            background-color: #C65911;
+            color: #fff;
+            font-size: 14px;
+        }
+        td {
+            font-size: 12px;
+        }
+        tr {
+        height: 0px; /* Set a specific row height */
+    }
+        /* Set specific widths for each column */
+        .S-No {
+            width: 5%;
+        }
+        .image-col {
+            width: 9%;
+        }
+        .sku-col, .mrp-col, .category-col, .tester-col,
+        .carton-col, .variant-col, .price-col, .netprice-col, .stock-col {
+            width: 10%;
+        }
+        /* Image styling */
+        .image-col img {
+            width: 100%;
+            /* height: auto;
+            max-width: 100%; */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <!-- Add your logo image here -->
+        <img src="./Images/logo1.jpg" alt="Company Logo" class="logo">
+        <!-- <h1>Product Price List - Nov-2024</h1> -->
+    </div>
+
+    <!-- Search input -->
+     <div class="search-container">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for category...">
+    </div>
+
+    <!-- Product table -->
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th class="S-No">S No.</th>
+                <th class="image-col">Image</th>
+                <th class="sku-col">SKU</th>
+                <th class="category-col">Category</th>
+                <th class="tester-col">Tester Scheme</th>
+                <th class="carton-col">Qty/Carton (Doz.)</th>
+                <th class="variant-col">Variants</th>
+                <th class="price-col">Price</th>
+                <th class="netprice-col">Net Price Per Pc</th>
+                <th class="mrp-col">MRP</th>
+                <th class="stock-col">Stock</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody">
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Example list of products
+        const products = [
+    {
+        "id": "1",
+        "image": "./Images/PB001.jpg",
+        "sku": "PB001",
+        "category": "Blusher",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "4",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "210",
+        "stock": ""
+    },
+    {
+        "id": "2",
+        "image": "./Images/CP001.jpg",
+        "sku": "CP001",
+        "category": "Compact",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "8",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "129",
+        "stock": ""
+    },
+    {
+        "id": "3",
+        "image": "./Images/CP002.jpg",
+        "sku": "CP002",
+        "category": "Compact",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "8",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "180",
+        "stock": ""
+    },
+    {
+        "id": "4",
+        "image": "./Images/LC001.jpg",
+        "sku": "LC001",
+        "category": "Concealer",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "12",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "199",
+        "stock": ""
+    },
+    {
+        "id": "5",
+        "image": "./Images/PC001.jpg",
+        "sku": "PC001",
+        "category": "Concealer",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "12",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "249",
+        "stock": ""
+    },
+    {
+        "id": "6",
+        "image": "./Images/EL002.jpg",
+        "sku": "EL002",
+        "category": "Eyeliner",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "1",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "120",
+        "stock": ""
+    },
+    {
+        "id": "7",
+        "image": "./Images/EL003.jpg",
+        "sku": "EL003",
+        "category": "Eyeliner",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "6",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "180",
+        "stock": ""
+    },
+    {
+        "id": "8",
+        "image": "./Images/EL006.jpg",
+        "sku": "EL006",
+        "category": "Eyeliner",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "1",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "180",
+        "stock": ""
+    },
+    {
+        "id": "9",
+        "image": "./Images/EL009.jpg",
+        "sku": "EL009",
+        "category": "Eyeliner",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "1",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "249",
+        "stock": ""
+    },
+    {
+        "id": "10",
+        "image": "./Images/LF001.jpg",
+        "sku": "LF001",
+        "category": "Foundation",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "4",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "85",
+        "stock": ""
+    },
+    {
+        "id": "11",
+        "image": "./Images/LF003.jpg",
+        "sku": "LF003",
+        "category": "Foundation",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "12",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "175",
+        "stock": ""
+    },
+    {
+        "id": "12",
+        "image": "./Images/LF005.jpg",
+        "sku": "LF005",
+        "category": "Foundation",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "8",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "299",
+        "stock": ""
+    },
+    {
+        "id": "13",
+        "image": "./Images/K011.jpg",
+        "sku": "K011",
+        "category": "Kajal",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "1",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "159",
+        "stock": ""
+    },
+    {
+        "id": "14",
+        "image": "./Images/LB001.jpg",
+        "sku": "LB001",
+        "category": "Lip Balm",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "4",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "60",
+        "stock": ""
+    },
+    {
+        "id": "15",
+        "image": "./Images/SL007.jpg",
+        "sku": "SL007",
+        "category": "Lip Crayon",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "20",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "169",
+        "stock": ""
+    },
+    {
+        "id": "16",
+        "image": "./Images/LG001.jpg",
+        "sku": "LG001",
+        "category": "Lipgloss",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "10",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "229",
+        "stock": ""
+    },
+    {
+        "id": "17",
+        "image": "./Images/SL001.jpg",
+        "sku": "SL001",
+        "category": "Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "25",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "120",
+        "stock": ""
+    },
+    {
+        "id": "18",
+        "image": "./Images/SL009.jpg",
+        "sku": "SL009",
+        "category": "Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "24",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "199",
+        "stock": ""
+    },
+    {
+        "id": "19",
+        "image": "./Images/SL012.jpg",
+        "sku": "SL012",
+        "category": "Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "15",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "229",
+        "stock": ""
+    },
+    {
+        "id": "20",
+        "image": "./Images/SL002.jpg",
+        "sku": "SL002",
+        "category": "Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "2",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "249",
+        "stock": ""
+    },
+    {
+        "id": "21",
+        "image": "./Images/SL010.jpg",
+        "sku": "SL010",
+        "category": "Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "24",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "249",
+        "stock": ""
+    },
+    {
+        "id": "22",
+        "image": "./Images/SL014.jpg",
+        "sku": "SL014",
+        "category": "Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "18",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "279",
+        "stock": ""
+    },
+    {
+        "id": "23",
+        "image": "./Images/LL001.jpg",
+        "sku": "LL001",
+        "category": "Liquid Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "18",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "120",
+        "stock": ""
+    },
+    {
+        "id": "24",
+        "image": "./Images/LL006.jpg",
+        "sku": "LL006",
+        "category": "Liquid Lipstick",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "18",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "249",
+        "stock": ""
+    },
+    {
+        "id": "25",
+        "image": "./Images/MF001.jpg",
+        "sku": "MF001",
+        "category": "Makeup Fixer",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "1",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "249",
+        "stock": ""
+    },
+    {
+        "id": "26",
+        "image": "./Images/NP010.jpg",
+        "sku": "NP010",
+        "category": "Nail Polish",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "69",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "79",
+        "stock": ""
+    },
+    {
+        "id": "27",
+        "image": "./Images/NP003.jpg",
+        "sku": "NP003",
+        "category": "Nail Polish",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "97",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "99",
+        "stock": ""
+    },
+    {
+        "id": "28",
+        "image": "./Images/NP006.jpg",
+        "sku": "NP006",
+        "category": "Nail Polish",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "73",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "99",
+        "stock": ""
+    },
+    {
+        "id": "29",
+        "image": "./Images/NP007.jpg",
+        "sku": "NP007",
+        "category": "Nail Polish",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "73",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "99",
+        "stock": ""
+    },
+    {
+        "id": "30",
+        "image": "./Images/FP001.jpg",
+        "sku": "FP001",
+        "category": "Primer",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "1",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "275",
+        "stock": ""
+    },
+    {
+        "id": "31",
+        "image": "./Images/P006.jpg",
+        "sku": "P006",
+        "category": "Sindur",
+        "testerScheme": "",
+        "qtyCarton": "",
+        "variants": "2",
+        "price": "",
+        "netPricePerPc": "",
+        "mrp": "109",
+        "stock": ""
+    }
+];
+
+        // Function to load products into the table
+        function loadProducts() {
+            const tableBody = document.getElementById("productTableBody");
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            products.forEach((product, index) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td class="S-No">${index + 1}</td>
+                    <td class="image-col"><img src="${product.image}" alt="Product ${index + 1}"></td>
+                    <td class="sku-col">${product.sku}</td>
+                    <td class="category-col">${product.category}</td>
+                    <td class="tester-col">${product.testerScheme}</td>
+                    <td class="carton-col">${product.qtyCarton}</td>
+                    <td class="variant-col">${product.variants}</td>
+                    <td class="price-col">${product.price}</td>
+                    <td class="netprice-col">${product.netPricePerPc}</td>
+                    <td class="mrp-col">${product.mrp}</td>
+                    <td class="stock-col">${product.stock}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call loadProducts to populate table on page load
+        window.onload = loadProducts;
+
+        function filterTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById("productTable");
+            const tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName("td")[3]; // Category column
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
