@@ -3,8 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List with Filter</title>
+    <title>Mila Beaute Price List</title>
     <style>
+
+        /* Brand selection section styling */
+        .brand-selection {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 1px;
+        }
+
+        .brand-selection h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header-container h1 {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: #C65911;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+
+        /* Button styling */
+        .brand-buttons {
+            display: flex;
+            justify-content: center;
+            padding: 0px;
+            /* background-color: #f4f4f4; */
+        }
+
+        .brand-buttons button  {
+            /* background-color: #0F52BA; */
+            /* color: white; */
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .brand-buttons button:first-child{
+            background-color:#C65911;
+            color: white;
+        }
+
+        .brand-buttons button:last-child{
+            background-color: #0F52BA;
+            color: white;
+        }
+
+        .brand-buttons button:first-child:hover {
+            background-color: #ffcc99;
+        }
+
+        .brand-buttons button:last-child:hover {
+            background-color: #ffcc99;
+        }
+
+
+/* .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #C65911;
+            padding: 10px 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #ffcc99;
+        }
+
+ */
 
         .header-container {
             text-align: center;
@@ -45,6 +146,12 @@
 
         h1 {
             text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: #C65911;
+            font-size: 20px;
+            font-weight: bold;
+
         }
         table {
             width: 85%;
@@ -53,6 +160,7 @@
             text-align: center;
             table-layout: fixed;
         }
+        
         th, td {
             border: 1.5px solid #000000;
             padding: 0px;
@@ -97,11 +205,31 @@
 </head>
 <body>
 
+    
+
+    <!-- Navbar -->
+    <!-- <div class="navbar">
+        <div class="navbar-logo"></div>
+        <div class="navbar-links">
+            <a href="index.html">Mila Beaute</a>
+            <a href="milap.html">Milap</a>
+        </div>
+    </div> -->
+
+
     <div class="header-container">
         <!-- Add your logo image here -->
         <img src="./Images/logo.png" alt="Company Logo" class="logo">
-        <!-- <h1>Product Price List - Nov-2024</h1> -->
+        <h1>Product Price List - Nov'2024</h1>
     </div>
+
+        <!-- Brand Buttons -->
+        <div class="brand-selection">
+            <h3>Select Brand Here:</h3>
+            <div class="brand-buttons">
+                <button onclick="location.href='index.html'">Mila Beauté</button>
+                <button onclick="location.href='milap.html'">Milap</button>
+        </div>
 
     <!-- Search input -->
      <div class="search-container">
@@ -116,7 +244,6 @@
                 <th class="image-col">Image</th>
                 <th class="sku-col">SKU</th>
                 <th class="category-col">Category</th>
-                <th class="best-col">Super Essential / Best Seller</th>
                 <th class="tester-col">Tester Scheme</th>
                 <th class="carton-col">Qty/Carton (Doz.)</th>
                 <th class="variant-col">Color / Group</th>
@@ -137,596 +264,628 @@
         // Example list of products
         const products = [
     {
-        "id": "1",
-        "image": "./Images/PB001.jpg",
-        "sku": "PB001",
-        "category": "Blusher",
-        "best": "",
-        "testerScheme": "11+1",
-        "qtyCarton": "",
+        "S.No.": "1",
+        "Image": "./Images/PB001.jpg",
+        "SKU": "PB001",
+        "Category": "Blusher",
+        "scheme": "11+1",
+        "qtycarton": "36",
         "variants": "4",
         "ptr": "94.92",
         "gst": "17.08",
         "ptrwithtax": "112.00",
         "ptrwithschemetax": "102.67",
         "mrp": "249",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "2",
-        "image": "./Images/CP001.jpg",
-        "sku": "CP001",
-        "category": "Compact",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
+        "S.No.": "2",
+        "Image": "./Images/CP001.jpg",
+        "SKU": "CP001",
+        "Category": "Compact",
+        "scheme": "",
+        "qtycarton": "48",
         "variants": "8",
         "ptr": "54.66",
         "gst": "9.84",
         "ptrwithtax": "64.50",
         "ptrwithschemetax": "64.50",
         "mrp": "129",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "3",
-        "image": "./Images/CP002.jpg",
-        "sku": "CP002",
-        "category": "Compact",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
+        "S.No.": "3",
+        "Image": "./Images/CP002.jpg",
+        "SKU": "CP002",
+        "Category": "Compact",
+        "scheme": "",
+        "qtycarton": "48",
         "variants": "8",
         "ptr": "71.61",
         "gst": "12.89",
         "ptrwithtax": "84.50",
         "ptrwithschemetax": "84.50",
         "mrp": "180",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "4",
-        "image": "./Images/LC001.jpg",
-        "sku": "LC001",
-        "category": "Concealer",
-        "best": "",
-        "testerScheme": "14.28%",
-        "qtyCarton": "72",
+        "S.No.": "4",
+        "Image": "./Images/LC001.jpg",
+        "SKU": "LC001",
+        "Category": "Concealer",
+        "scheme": "14.28%",
+        "qtycarton": "72",
         "variants": "12",
         "ptr": "76.27",
         "gst": "13.73",
         "ptrwithtax": "90.00",
         "ptrwithschemetax": "77.15",
         "mrp": "199",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "5",
-        "image": "./Images/PC001.jpg",
-        "sku": "PC001",
-        "category": "Concealer",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
+        "S.No.": "5",
+        "Image": "./Images/PC001.jpg",
+        "SKU": "PC001",
+        "Category": "Concealer",
+        "scheme": "",
+        "qtycarton": "72",
         "variants": "12",
         "ptr": "105.51",
         "gst": "18.99",
         "ptrwithtax": "124.50",
         "ptrwithschemetax": "124.50",
         "mrp": "249",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "6",
-        "image": "./Images/EL002.jpg",
-        "sku": "EL002",
-        "category": "Eyeliner",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "1",
-        "ptr": "46.61",
-        "gst": "8.39",
-        "ptrwithtax": "55.00",
-        "ptrwithschemetax": "55.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "7",
-        "image": "./Images/EL003.jpg",
-        "sku": "EL003",
-        "category": "Eyeliner",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "6",
-        "ptr": "76.27",
-        "gst": "13.73",
-        "ptrwithtax": "90.00",
-        "ptrwithschemetax": "90.00",
-        "mrp": "180",
-        "stock": ""
-    },
-    {
-        "id": "8",
-        "image": "./Images/EL009.jpg",
-        "sku": "EL009",
-        "category": "Eyeliner",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "1",
-        "ptr": "105.51",
-        "gst": "18.99",
-        "ptrwithtax": "124.50",
-        "ptrwithschemetax": "124.50",
-        "mrp": "249",
-        "stock": ""
-    },
-    {
-        "id": "9",
-        "image": "./Images/LF001.jpg",
-        "sku": "LF001",
-        "category": "Foundation",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
+        "S.No.": "6",
+        "Image": "./Images/LF001.jpg",
+        "SKU": "LF001",
+        "Category": "Foundation",
+        "scheme": "",
+        "qtycarton": "48",
         "variants": "4",
         "ptr": "33.89",
         "gst": "6.10",
         "ptrwithtax": "40.00",
         "ptrwithschemetax": "40.00",
         "mrp": "85",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "10",
-        "image": "./Images/LF003.jpg",
-        "sku": "LF003",
-        "category": "Foundation",
-        "best": "",
-        "testerScheme": "7.69%",
-        "qtyCarton": "36",
+        "S.No.": "7",
+        "Image": "./Images/LF003.jpg",
+        "SKU": "LF003",
+        "Category": "Foundation",
+        "scheme": "7.69%",
+        "qtycarton": "36",
         "variants": "12",
         "ptr": "74.15",
         "gst": "13.35",
         "ptrwithtax": "87.50",
         "ptrwithschemetax": "80.77",
         "mrp": "175",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "11",
-        "image": "./Images/K011.jpg",
-        "sku": "K011",
-        "category": "Kajal",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "1",
-        "ptr": "67.37",
-        "gst": "12.13",
-        "ptrwithtax": "79.50",
-        "ptrwithschemetax": "79.50",
-        "mrp": "159",
-        "stock": ""
-    },
-    {
-        "id": "12",
-        "image": "./Images/LB001.jpg",
-        "sku": "LB001",
-        "category": "Lip Balm",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "4",
-        "ptr": "25.42",
-        "gst": "4.58",
-        "ptrwithtax": "30.00",
-        "ptrwithschemetax": "30.00",
-        "mrp": "60",
-        "stock": ""
-    },
-    {
-        "id": "13",
-        "image": "./Images/SL007.jpg",
-        "sku": "SL007",
-        "category": "Lip Crayon",
-        "best": "",
-        "testerScheme": "7.69%",
-        "qtyCarton": "72",
-        "variants": "20",
-        "ptr": "59.32",
-        "gst": "10.68",
-        "ptrwithtax": "70.00",
-        "ptrwithschemetax": "64.62",
-        "mrp": "169",
-        "stock": ""
-    },
-    {
-        "id": "14",
-        "image": "./Images/SL007.jpg",
-        "sku": "SL007",
-        "category": "Lip Crayon",
-        "best": "",
-        "testerScheme": "7.69%",
-        "qtyCarton": "72",
-        "variants": "[A, B, Red \n& Maroon]",
-        "ptr": "59.32",
-        "gst": "10.68",
-        "ptrwithtax": "70.00",
-        "ptrwithschemetax": "64.62",
-        "mrp": "169",
-        "stock": ""
-    },
-    {
-        "id": "15",
-        "image": "./Images/LG001.jpg",
-        "sku": "LG001",
-        "category": "Lipgloss",
-        "best": "",
-        "testerScheme": "5+1",
-        "qtyCarton": "",
-        "variants": "10",
-        "ptr": "88.98",
-        "gst": "16.02",
-        "ptrwithtax": "105.00",
-        "ptrwithschemetax": "87.51",
-        "mrp": "229",
-        "stock": ""
-    },
-    {
-        "id": "16",
-        "image": "./Images/SL001.jpg",
-        "sku": "SL001",
-        "category": "Lipstick",
-        "best": "",
-        "testerScheme": "QPS - On 144Pcs get Welspun Bed in a Bag worth MRP.6499/- absolutely free",
-        "qtyCarton": "72",
-        "variants": "25",
-        "ptr": "50.85",
-        "gst": "9.15",
-        "ptrwithtax": "60.00",
-        "ptrwithschemetax": "60.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "17",
-        "image": "./Images/SL001.jpg",
-        "sku": "SL001",
-        "category": "Lipstick",
-        "best": "",
-        "testerScheme": "7.69%",
-        "qtyCarton": "72",
-        "variants": "25",
-        "ptr": "50.85",
-        "gst": "9.15",
-        "ptrwithtax": "60.00",
-        "ptrwithschemetax": "55.39",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "18",
-        "image": "./Images/SL001.jpg",
-        "sku": "SL001",
-        "category": "Lipstick",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "[A, B, Red \n& Maroon]",
-        "ptr": "50.85",
-        "gst": "9.15",
-        "ptrwithtax": "60.00",
-        "ptrwithschemetax": "55.39",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "19",
-        "image": "./Images/SL002.jpg",
-        "sku": "SL002",
-        "category": "Lipstick",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "",
-        "variants": "Shades - [A, B]",
-        "ptr": "105.50",
-        "gst": "18.99",
-        "ptrwithtax": "124.50",
-        "ptrwithschemetax": "124.50",
-        "mrp": "249",
-        "stock": ""
-    },
-    {
-        "id": "20",
-        "image": "./Images/SL010.jpg",
-        "sku": "SL010",
-        "category": "Lipstick",
-        "best": "",
-        "testerScheme": "5+1",
-        "qtyCarton": "72",
-        "variants": "24",
-        "ptr": "101.69",
-        "gst": "18.31",
-        "ptrwithtax": "120.00",
-        "ptrwithschemetax": "100.00",
-        "mrp": "249",
-        "stock": ""
-    },
-    {
-        "id": "21",
-        "image": "./Images/SL014.jpg",
-        "sku": "SL014",
-        "category": "Lipstick",
-        "best": "",
-        "testerScheme": "5+1",
-        "qtyCarton": "",
-        "variants": "18",
-        "ptr": "112.71",
-        "gst": "20.29",
-        "ptrwithtax": "133.00",
-        "ptrwithschemetax": "110.84",
-        "mrp": "279",
-        "stock": ""
-    },
-    {
-        "id": "22",
-        "image": "./Images/LL001.jpg",
-        "sku": "LL001",
-        "category": "Liquid Lipstick",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "18",
-        "ptr": "42.37",
-        "gst": "7.63",
-        "ptrwithtax": "50.00",
-        "ptrwithschemetax": "50.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "23",
-        "image": "./Images/LL001.jpg",
-        "sku": "LL001",
-        "category": "Liquid Lipstick",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "72",
-        "variants": "[A, B, Red \n& Maroon]",
-        "ptr": "42.37",
-        "gst": "7.63",
-        "ptrwithtax": "50.00",
-        "ptrwithschemetax": "50.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "24",
-        "image": "./Images/LL006.jpg",
-        "sku": "LL006",
-        "category": "Liquid Lipstick",
-        "best": "",
-        "testerScheme": "5+1",
-        "qtyCarton": "",
-        "variants": "18",
-        "ptr": "94.91",
-        "gst": "17.08",
-        "ptrwithtax": "112.00",
-        "ptrwithschemetax": "93.34",
-        "mrp": "249",
-        "stock": ""
-    },
-    {
-        "id": "25",
-        "image": "./Images/MF001.jpg",
-        "sku": "MF001",
-        "category": "Makeup Fixer",
-        "best": "",
-        "testerScheme": "7.69%",
-        "qtyCarton": "18",
+        "S.No.": "8",
+        "Image": "./Images/MF001.jpg",
+        "SKU": "MF001",
+        "Category": "Makeup Fixer",
+        "scheme": "7.69%",
+        "qtycarton": "18",
         "variants": "1",
         "ptr": "101.69",
         "gst": "18.30",
         "ptrwithtax": "120.00",
         "ptrwithschemetax": "110.77",
         "mrp": "249",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "26",
-        "image": "./Images/NP010.jpg",
-        "sku": "NP010",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "69",
-        "ptr": "25.42",
-        "gst": "4.58",
-        "ptrwithtax": "30.00",
-        "ptrwithschemetax": "30.00",
-        "mrp": "79",
-        "stock": ""
-    },
-    {
-        "id": "27",
-        "image": "./Images/NP003.jpg",
-        "sku": "NP003",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "97",
-        "ptr": "23.73",
-        "gst": "4.27",
-        "ptrwithtax": "28.00",
-        "ptrwithschemetax": "28.00",
-        "mrp": "99",
-        "stock": ""
-    },
-    {
-        "id": "28",
-        "image": "./Images/NP006.jpg",
-        "sku": "NP006",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "73 Shades (except [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73])",
-        "ptr": "35.59",
-        "gst": "6.41",
-        "ptrwithtax": "42.00",
-        "ptrwithschemetax": "42.00",
-        "mrp": "99",
-        "stock": ""
-    },
-    {
-        "id": "29",
-        "image": "./Images/NP006.jpg",
-        "sku": "NP006",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "[Cocktails1, Cocktails2, Maroons, Monochrome, Multi1, Multi2, Multi3, Nude1, Nude2, Reds]",
-        "ptr": "35.59",
-        "gst": "6.41",
-        "ptrwithtax": "42.00",
-        "ptrwithschemetax": "42.00",
-        "mrp": "99",
-        "stock": ""
-    },
-    {
-        "id": "30",
-        "image": "./Images/NP006.jpg",
-        "sku": "NP006",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "[Glitter, Metallic]",
-        "ptr": "38.14",
-        "gst": "6.86",
-        "ptrwithtax": "45.00",
-        "ptrwithschemetax": "45.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "31",
-        "image": "./Images/NP006.jpg",
-        "sku": "NP006",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "[59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73]",
-        "ptr": "38.14",
-        "gst": "6.86",
-        "ptrwithtax": "45.00",
-        "ptrwithschemetax": "45.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "",
-        "image": "./Images/NP007.jpg",
-        "sku": "NP007",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "73 Shades (except [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73])",
-        "ptr": "35.59",
-        "gst": "6.41",
-        "ptrwithtax": "42.00",
-        "ptrwithschemetax": "42.00",
-        "mrp": "99",
-        "stock": ""
-    },
-    {
-        "id": "",
-        "image": "./Images/NP007.jpg",
-        "sku": "NP007",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "[Cocktails1, Cocktails2, Maroons, Monochrome, Multi1, Multi2, Multi3, Nude1, Nude2, Reds]",
-        "ptr": "35.59",
-        "gst": "6.41",
-        "ptrwithtax": "42.00",
-        "ptrwithschemetax": "42.00",
-        "mrp": "99",
-        "stock": ""
-    },
-    {
-        "id": "",
-        "image": "./Images/NP007.jpg",
-        "sku": "NP007",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "[Glitter, Metallic]",
-        "ptr": "38.14",
-        "gst": "6.86",
-        "ptrwithtax": "45.00",
-        "ptrwithschemetax": "45.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "",
-        "image": "./Images/NP007.jpg",
-        "sku": "NP007",
-        "category": "Nail Polish",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "48",
-        "variants": "[59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73]",
-        "ptr": "38.14",
-        "gst": "6.86",
-        "ptrwithtax": "45.00",
-        "ptrwithschemetax": "45.00",
-        "mrp": "120",
-        "stock": ""
-    },
-    {
-        "id": "",
-        "image": "./Images/FP001.jpg",
-        "sku": "FP001",
-        "category": "Primer",
-        "best": "",
-        "testerScheme": "7.69%",
-        "qtyCarton": "24",
+        "S.No.": "9",
+        "Image": "./Images/FP001.jpg",
+        "SKU": "FP001",
+        "Category": "Primer",
+        "scheme": "7.69%",
+        "qtycarton": "24",
         "variants": "1",
         "ptr": "116.53",
         "gst": "20.97",
         "ptrwithtax": "137.50",
         "ptrwithschemetax": "126.93",
         "mrp": "275",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0.18"
     },
     {
-        "id": "",
-        "image": "./Images/P006.jpg",
-        "sku": "P006",
-        "category": "Sindur",
-        "best": "",
-        "testerScheme": "",
-        "qtyCarton": "96",
+        "S.No.": "10",
+        "Image": "./Images/P006.jpg",
+        "SKU": "P006",
+        "Category": "Sindur",
+        "scheme": "",
+        "qtycarton": "96",
         "variants": "2",
         "ptr": "42.00",
-        "gst": "0.00",
+        "gst": "0",
         "ptrwithtax": "42.00",
         "ptrwithschemetax": "42.00",
         "mrp": "109",
-        "stock": ""
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "11",
+        "Image": "./Images/LB001.jpg",
+        "SKU": "LB001",
+        "Category": "Lip Balm",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "4",
+        "ptr": "25.42",
+        "gst": "4.58",
+        "ptrwithtax": "30.00",
+        "ptrwithschemetax": "30.00",
+        "mrp": "60",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "12",
+        "Image": "./Images/SL007.jpg",
+        "SKU": "SL007",
+        "Category": "Lip Crayon",
+        "scheme": "7.69%",
+        "qtycarton": "72",
+        "variants": "20",
+        "ptr": "59.32",
+        "gst": "10.68",
+        "ptrwithtax": "70.00",
+        "ptrwithschemetax": "64.62",
+        "mrp": "169",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "13",
+        "Image": "./Images/SL007.jpg",
+        "SKU": "SL007",
+        "Category": "Lip Crayon",
+        "scheme": "7.69%",
+        "qtycarton": "72",
+        "variants": "(A, B, Red \n& Maroon)",
+        "ptr": "59.32",
+        "gst": "10.68",
+        "ptrwithtax": "70.00",
+        "ptrwithschemetax": "64.62",
+        "mrp": "169",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "14",
+        "Image": "./Images/LG001.jpg",
+        "SKU": "LG001",
+        "Category": "Lipgloss",
+        "scheme": "5+1",
+        "qtycarton": "36",
+        "variants": "10",
+        "ptr": "88.98",
+        "gst": "16.02",
+        "ptrwithtax": "105.00",
+        "ptrwithschemetax": "87.51",
+        "mrp": "229",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "15",
+        "Image": "./Images/SL001.jpg",
+        "SKU": "SL001",
+        "Category": "Lipstick",
+        "scheme": "QPS - On 144Pcs get Welspun Bed in a Bag worth MRP.6499/- abosultely free",
+        "qtycarton": "72",
+        "variants": "25",
+        "ptr": "50.85",
+        "gst": "9.15",
+        "ptrwithtax": "60.00",
+        "ptrwithschemetax": "60.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "16",
+        "Image": "./Images/SL001.jpg",
+        "SKU": "SL001",
+        "Category": "Lipstick",
+        "scheme": "7.69%",
+        "qtycarton": "72",
+        "variants": "25",
+        "ptr": "50.85",
+        "gst": "9.15",
+        "ptrwithtax": "60.00",
+        "ptrwithschemetax": "55.39",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "17",
+        "Image": "./Images/SL001.jpg",
+        "SKU": "SL001",
+        "Category": "Lipstick",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "A, B, Red \n& Maroon (24Pcs Tray)",
+        "ptr": "50.85",
+        "gst": "9.15",
+        "ptrwithtax": "60.00",
+        "ptrwithschemetax": "60.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "18",
+        "Image": "./Images/SL002.jpg",
+        "SKU": "SL002",
+        "Category": "Lipstick",
+        "scheme": "",
+        "qtycarton": "1",
+        "variants": "Shades - (A, B)",
+        "ptr": "105.50",
+        "gst": "18.99",
+        "ptrwithtax": "124.50",
+        "ptrwithschemetax": "124.50",
+        "mrp": "249",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "19",
+        "Image": "./Images/SL010.jpg",
+        "SKU": "SL010",
+        "Category": "Lipstick",
+        "scheme": "5+1",
+        "qtycarton": "72",
+        "variants": "24",
+        "ptr": "101.69",
+        "gst": "18.31",
+        "ptrwithtax": "120.00",
+        "ptrwithschemetax": "100.00",
+        "mrp": "249",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "20",
+        "Image": "./Images/SL014.jpg",
+        "SKU": "SL014",
+        "Category": "Lipstick",
+        "scheme": "5+1",
+        "qtycarton": "36",
+        "variants": "18",
+        "ptr": "112.71",
+        "gst": "20.29",
+        "ptrwithtax": "133.00",
+        "ptrwithschemetax": "110.84",
+        "mrp": "279",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "21",
+        "Image": "./Images/LL001.jpg",
+        "SKU": "LL001",
+        "Category": "Liquid Lipstick",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "18",
+        "ptr": "42.37",
+        "gst": "7.63",
+        "ptrwithtax": "50.00",
+        "ptrwithschemetax": "50.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "22",
+        "Image": "./Images/LL001.jpg",
+        "SKU": "LL001",
+        "Category": "Liquid Lipstick",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "(A, B, Red \n& Maroon)",
+        "ptr": "42.37",
+        "gst": "7.63",
+        "ptrwithtax": "50.00",
+        "ptrwithschemetax": "50.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "23",
+        "Image": "./Images/LL006.jpg",
+        "SKU": "LL006",
+        "Category": "Liquid Lipstick",
+        "scheme": "5+1",
+        "qtycarton": "36",
+        "variants": "18",
+        "ptr": "94.91",
+        "gst": "17.08",
+        "ptrwithtax": "112.00",
+        "ptrwithschemetax": "93.34",
+        "mrp": "249",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "24",
+        "Image": "./Images/EL002.jpg",
+        "SKU": "EL002",
+        "Category": "Eyeliner",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "46.61",
+        "gst": "8.39",
+        "ptrwithtax": "55.00",
+        "ptrwithschemetax": "55.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "25",
+        "Image": "./Images/EL003.jpg",
+        "SKU": "EL003",
+        "Category": "Eyeliner",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "6",
+        "ptr": "76.27",
+        "gst": "13.73",
+        "ptrwithtax": "90.00",
+        "ptrwithschemetax": "90.00",
+        "mrp": "180",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "26",
+        "Image": "./Images/EL009.jpg",
+        "SKU": "EL009",
+        "Category": "Eyeliner",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "105.51",
+        "gst": "18.99",
+        "ptrwithtax": "124.50",
+        "ptrwithschemetax": "124.50",
+        "mrp": "249",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "27",
+        "Image": "./Images/K011.jpg",
+        "SKU": "K011",
+        "Category": "Kajal",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "67.37",
+        "gst": "12.13",
+        "ptrwithtax": "79.50",
+        "ptrwithschemetax": "79.50",
+        "mrp": "159",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "28",
+        "Image": "./Images/NP010.jpg",
+        "SKU": "NP010",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "69",
+        "ptr": "25.42",
+        "gst": "4.58",
+        "ptrwithtax": "30.00",
+        "ptrwithschemetax": "30.00",
+        "mrp": "79",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "29",
+        "Image": "./Images/NP010.jpg",
+        "SKU": "NP010",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Glitter, Maroons, Metallic-1, Metallic-2, Mix-1, Mix-2, Mix-3, Monochrome, Multi, Nude-1, Nude-2, Reds)",
+        "ptr": "25.42",
+        "gst": "4.58",
+        "ptrwithtax": "30.00",
+        "ptrwithschemetax": "30.00",
+        "mrp": "79",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "30",
+        "Image": "./Images/NP003.jpg",
+        "SKU": "NP003",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "97",
+        "ptr": "23.73",
+        "gst": "4.27",
+        "ptrwithtax": "28.00",
+        "ptrwithschemetax": "28.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "31",
+        "Image": "./Images/NP003.jpg",
+        "SKU": "NP003",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Blooming Reds, Lots of Nudes, Maroons, Monochromatic, Multi Hued1, Multi Hued2, Multi Hued3, Multi Hued4, Party Poppers, Retro Reds, Summertime Madness)",
+        "ptr": "23.73",
+        "gst": "4.27",
+        "ptrwithtax": "28.00",
+        "ptrwithschemetax": "28.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "32",
+        "Image": "./Images/NP006.jpg",
+        "SKU": "NP006",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "73 Shades (except [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73])",
+        "ptr": "35.59",
+        "gst": "6.41",
+        "ptrwithtax": "42.00",
+        "ptrwithschemetax": "42.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "33",
+        "Image": "./Images/NP006.jpg",
+        "SKU": "NP006",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Cocktails1, Cocktails2, Maroons, Monochrome, Multi1, Multi2, Multi3, Nude1, Nude2, Reds)",
+        "ptr": "35.59",
+        "gst": "6.41",
+        "ptrwithtax": "42.00",
+        "ptrwithschemetax": "42.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "34",
+        "Image": "./Images/NP006.jpg",
+        "SKU": "NP006",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Glitter, Metallic)",
+        "ptr": "38.14",
+        "gst": "6.86",
+        "ptrwithtax": "45.00",
+        "ptrwithschemetax": "45.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "35",
+        "Image": "./Images/NP006.jpg",
+        "SKU": "NP006",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73)",
+        "ptr": "38.14",
+        "gst": "6.86",
+        "ptrwithtax": "45.00",
+        "ptrwithschemetax": "45.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "36",
+        "Image": "./Images/NP007.jpg",
+        "SKU": "NP007",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "73 Shades (except [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73])",
+        "ptr": "35.59",
+        "gst": "6.41",
+        "ptrwithtax": "42.00",
+        "ptrwithschemetax": "42.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "37",
+        "Image": "./Images/NP007.jpg",
+        "SKU": "NP007",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Cocktails1, Cocktails2, Maroons, Monochrome, Multi1, Multi2, Multi3, Nude1, Nude2, Reds)",
+        "ptr": "35.59",
+        "gst": "6.41",
+        "ptrwithtax": "42.00",
+        "ptrwithschemetax": "42.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "38",
+        "Image": "./Images/NP007.jpg",
+        "SKU": "NP007",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Glitter, Metallic)",
+        "ptr": "38.14",
+        "gst": "6.86",
+        "ptrwithtax": "45.00",
+        "ptrwithschemetax": "45.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "39",
+        "Image": "./Images/NP007.jpg",
+        "SKU": "NP007",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 73)",
+        "ptr": "38.14",
+        "gst": "6.86",
+        "ptrwithtax": "45.00",
+        "ptrwithschemetax": "45.00",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
     }
 ];
 
@@ -740,12 +899,11 @@
 
                 row.innerHTML = `
                     <td class="S-No">${index + 1}</td>
-                    <td class="image-col"><img src="${product.image}" alt="Product ${index + 1}"></td>
-                    <td class="sku-col">${product.sku}</td>
-                    <td class="category-col">${product.category}</td>
-                    <td class="best-col">${product.best}</td>
-                    <td class="tester-col">${product.testerScheme}</td>
-                    <td class="carton-col">${product.qtyCarton}</td>
+                    <td class="image-col"><img src="${product.Image}" alt="Product ${index + 1}"></td>
+                    <td class="sku-col">${product.SKU}</td>
+                    <td class="category-col">${product.Category}</td>
+                    <td class="tester-col">${product.scheme}</td>
+                    <td class="carton-col">${product.qtycarton}</td>
                     <td class="variant-col">${product.variants}</td>
                     <td class="price-col">${product.ptr}</td>
                     <td class="gst-col">${product.gst}</td>

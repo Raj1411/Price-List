@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mila Beaute Price List</title>
+    <style>
+
+        /* Brand selection section styling */
+        .brand-selection {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 1px;
+        }
+
+        .brand-selection h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header-container h1 {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: #0F52BA;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+
+        /* Button styling */
+        .brand-buttons {
+            display: flex;
+            justify-content: center;
+            padding: 0px;
+            /* background-color: #f4f4f4; */
+        }
+
+
+        .brand-buttons button  {
+            /* background-color: #0F52BA; */
+            /* color: white; */
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .brand-buttons button:first-child{
+            background-color:#C65911;
+            color: white;
+        }
+
+        .brand-buttons button:last-child{
+            background-color: #0F52BA;
+            color: white;
+        }
+
+        .brand-buttons button:first-child:hover {
+            background-color: #ffcc99;
+        }
+
+        .brand-buttons button:last-child:hover {
+            background-color: #ffcc99;
+        }
+
+
+/* .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #C65911;
+            padding: 10px 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #ffcc99;
+        }
+
+ */
+
+        .header-container {
+            text-align: center;
+            /* margin-top: 20px; */
+            /* margin-bottom: 0px; */
+        }
+
+        .logo {
+            max-width: 200px; /* Adjust the logo size */
+            height: 70px;
+            margin-top: 10px;
+            /* margin-bottom: 10px; */
+
+        }
+
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ff8c00;
+            background-color: #fff;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: flex-end; /* Align search to the right */
+            margin: 0px; /* Optional: Add some space from edges */
+            padding-right: 95px;
+        }
+
+        /* Ensure search input is styled properly */
+        #searchInput {
+            padding: 8px;
+            font-size: 10px;
+            width: 150px;
+        }
+
+        
+
+        h1 {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: #C65911;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+        table {
+            width: 85%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+            table-layout: fixed;
+        }
+        
+        th, td {
+            border: 1.5px solid #000000;
+            padding: 0px;
+            text-align: center;
+            overflow: hidden;
+        }   
+        th {
+            background-color: #0F52BA;
+            color: #fff;
+            font-size: 14px;
+        }
+        td {
+            font-size: 16px;
+        }
+        tr {
+        height: 0px; /* Set a specific row height */
+    }
+        /* Set specific widths for each column */
+        .S-No {
+            width: 5%;
+        }
+        .image-col {
+            width: 10%;
+        }
+        .variant-col {
+            width: 15%
+        }
+        .tester-col {
+            width: 15%
+        }
+        .sku-col, .mrp-col, .category-col,
+        .carton-col, .price-col, .netprice-col, .stock-col, .best-col, .get-col, .ptrwithtax-col {
+            width: 10%;
+        }
+        /* Image styling */
+        .image-col img {
+            width: 100%;
+            /* height: auto;
+            max-width: 100%; */
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <!-- Navbar -->
+    <!-- <div class="navbar">
+        <div class="navbar-logo"></div>
+        <div class="navbar-links">
+            <a href="index.html">Mila Beaute</a>
+            <a href="milap.html">Milap</a>
+        </div>
+    </div> -->
+
+
+    <div class="header-container">
+        <!-- Add your logo image here -->
+        <img src="./Images1/Milap-logo.png" alt="Company Logo" class="logo">
+        <h1>Product Price List - Nov'2024</h1>
+    </div>
+
+        <!-- Brand Buttons -->
+        <div class="brand-selection">
+            <h3>Select Brand Here:</h3>
+            <div class="brand-buttons">
+                <button onclick="location.href='index.html'">Mila Beauté</button>
+                <button onclick="location.href='milap.html'">Milap</button>
+        </div>
+
+    <!-- Search input -->
+     <div class="search-container">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for category...">
+    </div>
+
+    <!-- Product table -->
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th class="S-No">S No.</th>
+                <th class="image-col">Image</th>
+                <th class="sku-col">SKU</th>
+                <th class="category-col">Category</th>
+                <th class="tester-col">Tester Scheme</th>
+                <th class="carton-col">Qty/Carton (Doz.)</th>
+                <th class="variant-col">Color / Group</th>
+                <th class="price-col">PTR</th>
+                <th class="gst-col">GST</th>
+                <th class="ptrwithtax-col">PTR (Including GST) / PCS</th>
+                <th class="netprice-col">PTR (Including GST) / PCS (With Scheme)</th>
+                <th class="mrp-col">MRP</th>
+                <th class="stock-col">Availability</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody">
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Example list of products
+        const products = [
+    {
+        "S.No.": "1",
+        "Image": "./Images1/LF002.jpg",
+        "SKU": "LF002",
+        "Category": "Foundation",
+        "scheme": "5.00%",
+        "qtycarton": "36",
+        "variants": "4",
+        "ptr": "16.95",
+        "gst": "3.05",
+        "ptrwithtax": "20.00",
+        "ptrwithschemetax": "19.00",
+        "mrp": "50",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "2",
+        "Image": "./Images1/CM001.jpg",
+        "SKU": "CM001",
+        "Category": "Face Cleanser",
+        "scheme": "",
+        "qtycarton": "24",
+        "variants": "1",
+        "ptr": "38.14",
+        "gst": "6.86",
+        "ptrwithtax": "45.00",
+        "ptrwithschemetax": "45.00",
+        "mrp": "119",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "3",
+        "Image": "./Images1/MR001.jpg",
+        "SKU": "MR001",
+        "Category": "Makeup Remover",
+        "scheme": "",
+        "qtycarton": "24",
+        "variants": "1",
+        "ptr": "63.56",
+        "gst": "11.44",
+        "ptrwithtax": "75.00",
+        "ptrwithschemetax": "75.00",
+        "mrp": "150",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "4",
+        "Image": "./Images1/MR002.jpg",
+        "SKU": "MR002",
+        "Category": "Makeup Remover",
+        "scheme": "",
+        "qtycarton": "24",
+        "variants": "1",
+        "ptr": "74.15",
+        "gst": "13.35",
+        "ptrwithtax": "87.50",
+        "ptrwithschemetax": "87.50",
+        "mrp": "199",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "5",
+        "Image": "./Images1/RW001.jpg",
+        "SKU": "RW001",
+        "Category": "Toner",
+        "scheme": "",
+        "qtycarton": "24",
+        "variants": "1",
+        "ptr": "29.66",
+        "gst": "5.34",
+        "ptrwithtax": "35.00",
+        "ptrwithschemetax": "35.00",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "6",
+        "Image": "./Images1/SL003.jpg",
+        "SKU": "SL003",
+        "Category": "Lipstick",
+        "scheme": "14.28%",
+        "qtycarton": "72",
+        "variants": "A, B, Red \n& Maroon (12Pcs Tray)",
+        "ptr": "50.85",
+        "gst": "9.15",
+        "ptrwithtax": "60.00",
+        "ptrwithschemetax": "51.42",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "7",
+        "Image": "./Images1/SL003.jpg",
+        "SKU": "SL003",
+        "Category": "Lipstick",
+        "scheme": "QPS - On 144Pcs get American Tourister Trolley Bag worth MRP.7499/- absolutely free",
+        "qtycarton": "72",
+        "variants": "29",
+        "ptr": "50.85",
+        "gst": "9.15",
+        "ptrwithtax": "60.00",
+        "ptrwithschemetax": "51.42",
+        "mrp": "120",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "8",
+        "Image": "./Images1/EL004.jpg",
+        "SKU": "EL004",
+        "Category": "Eyeliner",
+        "scheme": "",
+        "qtycarton": "96",
+        "variants": "4",
+        "ptr": "14.83",
+        "gst": "2.67",
+        "ptrwithtax": "17.50",
+        "ptrwithschemetax": "17.50",
+        "mrp": "45",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "9",
+        "Image": "./Images1/EL001.jpg",
+        "SKU": "EL001",
+        "Category": "Eyeliner",
+        "scheme": "5.00%",
+        "qtycarton": "96",
+        "variants": "1",
+        "ptr": "21.19",
+        "gst": "3.81",
+        "ptrwithtax": "25.00",
+        "ptrwithschemetax": "23.74",
+        "mrp": "65",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "10",
+        "Image": "./Images1/EL005.jpg",
+        "SKU": "EL005",
+        "Category": "Eyeliner",
+        "scheme": "7.69%",
+        "qtycarton": "36",
+        "variants": "1",
+        "ptr": "52.97",
+        "gst": "9.53",
+        "ptrwithtax": "62.50",
+        "ptrwithschemetax": "57.69",
+        "mrp": "150",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "11",
+        "Image": "./Images1/EL007.jpg",
+        "SKU": "EL007",
+        "Category": "Eyeliner",
+        "scheme": "7.69%",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "76.27",
+        "gst": "13.73",
+        "ptrwithtax": "90.00",
+        "ptrwithschemetax": "83.08",
+        "mrp": "180",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "12",
+        "Image": "./Images1/K001.1.jpg",
+        "SKU": "K001.1",
+        "Category": "Kajal",
+        "scheme": "3.00%",
+        "qtycarton": "144",
+        "variants": "1",
+        "ptr": "5.00",
+        "gst": "0.00",
+        "ptrwithtax": "5.00",
+        "ptrwithschemetax": "4.85",
+        "mrp": "10",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "13",
+        "Image": "./Images1/K009.jpg",
+        "SKU": "K009",
+        "Category": "Kajal",
+        "scheme": "",
+        "qtycarton": "432",
+        "variants": "1",
+        "ptr": "5.00",
+        "gst": "0.00",
+        "ptrwithtax": "5.00",
+        "ptrwithschemetax": "5.00",
+        "mrp": "10",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "14",
+        "Image": "./Images1/K003.jpg",
+        "SKU": "K003",
+        "Category": "Kajal",
+        "scheme": "",
+        "qtycarton": "192",
+        "variants": "1",
+        "ptr": "10.00",
+        "gst": "0.00",
+        "ptrwithtax": "10.00",
+        "ptrwithschemetax": "10.00",
+        "mrp": "25",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "15",
+        "Image": "./Images1/K010.jpg",
+        "SKU": "K010",
+        "Category": "Kajal",
+        "scheme": "7.69%",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "30.00",
+        "gst": "0.00",
+        "ptrwithtax": "30.00",
+        "ptrwithschemetax": "27.69",
+        "mrp": "60",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "16",
+        "Image": "./Images1/K006.jpg",
+        "SKU": "K006",
+        "Category": "Kajal",
+        "scheme": "",
+        "qtycarton": "96",
+        "variants": "1",
+        "ptr": "31.78",
+        "gst": "5.72",
+        "ptrwithtax": "37.50",
+        "ptrwithschemetax": "37.50",
+        "mrp": "75",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "17",
+        "Image": "./Images1/M005.jpg",
+        "SKU": "M005",
+        "Category": "Mascara",
+        "scheme": "5.00%",
+        "qtycarton": "144",
+        "variants": "1",
+        "ptr": "21.19",
+        "gst": "3.81",
+        "ptrwithtax": "25.00",
+        "ptrwithschemetax": "23.74",
+        "mrp": "65",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "18",
+        "Image": "./Images1/M001.jpg",
+        "SKU": "M001",
+        "Category": "Mascara",
+        "scheme": "7.69%",
+        "qtycarton": "36",
+        "variants": "1",
+        "ptr": "52.97",
+        "gst": "9.53",
+        "ptrwithtax": "62.50",
+        "ptrwithschemetax": "57.69",
+        "mrp": "150",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "19",
+        "Image": "./Images1/M002.jpg",
+        "SKU": "M002",
+        "Category": "Mascara",
+        "scheme": "7.69%",
+        "qtycarton": "36",
+        "variants": "1",
+        "ptr": "84.32",
+        "gst": "15.18",
+        "ptrwithtax": "99.50",
+        "ptrwithschemetax": "91.85",
+        "mrp": "199",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "20",
+        "Image": "./Images1/NP009.jpg",
+        "SKU": "NP009",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Zingy Zaps, valentines Candy, Raspberry Drops, Monotone, Maroons, Fairy Floss, Eastern Candy, Cotton Candy-1, Cotton Candy-2, Cotton Candy-3, Cotton Candy-4, Apple Candy, Almond Cluster)",
+        "ptr": "15.25",
+        "gst": "2.75",
+        "ptrwithtax": "18.00",
+        "ptrwithschemetax": "17.99",
+        "mrp": "35",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "21",
+        "Image": "./Images1/NP005.jpg",
+        "SKU": "NP005",
+        "Category": "Nail Polish",
+        "scheme": "",
+        "qtycarton": "48",
+        "variants": "(Unicorn, Splash of Wine, Reds, Rainbow-1, Rainbow-2, Pastels, Maroons, Cocktails, Brownies)",
+        "ptr": "17.37",
+        "gst": "3.13",
+        "ptrwithtax": "20.50",
+        "ptrwithschemetax": "20.50",
+        "mrp": "40",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "22",
+        "Image": "./Images1/NPR001.jpg",
+        "SKU": "NPR001",
+        "Category": "Nail Paint Remover",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "6",
+        "ptr": "14.83",
+        "gst": "2.67",
+        "ptrwithtax": "17.50",
+        "ptrwithschemetax": "17.50",
+        "mrp": "45",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "23",
+        "Image": "./Images1/L003.jpg",
+        "SKU": "L003",
+        "Category": "Liquid Sindur (plain and sparkle)",
+        "scheme": "",
+        "qtycarton": "144",
+        "variants": "2",
+        "ptr": "9.00",
+        "gst": "0.00",
+        "ptrwithtax": "9.00",
+        "ptrwithschemetax": "9.00",
+        "mrp": "20",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "24",
+        "Image": "./Images1/L001.jpg",
+        "SKU": "L001",
+        "Category": "Liquid Sindur (plain and sparkle)",
+        "scheme": "",
+        "qtycarton": "144",
+        "variants": "2",
+        "ptr": "12.00",
+        "gst": "0.00",
+        "ptrwithtax": "12.00",
+        "ptrwithschemetax": "12.00",
+        "mrp": "30",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "25",
+        "Image": "./Images1/L011.jpg",
+        "SKU": "L011",
+        "Category": "Liquid Sindur",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "2",
+        "ptr": "30.00",
+        "gst": "0.00",
+        "ptrwithtax": "30.00",
+        "ptrwithschemetax": "30.00",
+        "mrp": "60",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "26",
+        "Image": "./Images1/L002.jpg",
+        "SKU": "L002",
+        "Category": "Liquid Sindur (plain and sparkle)",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "2",
+        "ptr": "23.00",
+        "gst": "0.00",
+        "ptrwithtax": "23.00",
+        "ptrwithschemetax": "23.00",
+        "mrp": "60",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "27",
+        "Image": "./Images1/L005.jpg",
+        "SKU": "L005 - (6+1) Pcs Pack",
+        "Category": "Liquid Sindur",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "2",
+        "ptr": "32.14",
+        "gst": "0.00",
+        "ptrwithtax": "32.14",
+        "ptrwithschemetax": "32.14",
+        "mrp": "75",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "28",
+        "Image": "./Images1/L006.jpg",
+        "SKU": "L006",
+        "Category": "Liquid Sindur",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "2",
+        "ptr": "37.50",
+        "gst": "0.00",
+        "ptrwithtax": "37.50",
+        "ptrwithschemetax": "37.50",
+        "mrp": "75",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "29",
+        "Image": "./Images1/L009.jpg",
+        "SKU": "L009",
+        "Category": "Liquid Sindur",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "2",
+        "ptr": "45.00",
+        "gst": "0.00",
+        "ptrwithtax": "45.00",
+        "ptrwithschemetax": "45.00",
+        "mrp": "90",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "30",
+        "Image": "./Images1/L010.jpg",
+        "SKU": "L010 - (6+1) Pcs Pack",
+        "Category": "Liquid Sindur",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "2",
+        "ptr": "42.43",
+        "gst": "0.00",
+        "ptrwithtax": "42.43",
+        "ptrwithschemetax": "42.43",
+        "mrp": "99",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "31",
+        "Image": "./Images1/P012.jpg",
+        "SKU": "P012",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "288",
+        "variants": "2",
+        "ptr": "10.00",
+        "gst": "0.00",
+        "ptrwithtax": "10.00",
+        "ptrwithschemetax": "10.00",
+        "mrp": "20",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "32",
+        "Image": "./Images1/P010.jpg",
+        "SKU": "P010",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "180",
+        "variants": "2",
+        "ptr": "12.00",
+        "gst": "0.00",
+        "ptrwithtax": "12.00",
+        "ptrwithschemetax": "12.00",
+        "mrp": "30",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "33",
+        "Image": "./Images1/P001.jpg",
+        "SKU": "P001",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "180",
+        "variants": "2",
+        "ptr": "13.00",
+        "gst": "0.00",
+        "ptrwithtax": "13.00",
+        "ptrwithschemetax": "13.00",
+        "mrp": "30",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "34",
+        "Image": "./Images1/P002.jpg",
+        "SKU": "P002",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "180",
+        "variants": "2",
+        "ptr": "13.00",
+        "gst": "0.00",
+        "ptrwithtax": "13.00",
+        "ptrwithschemetax": "13.00",
+        "mrp": "30",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "35",
+        "Image": "./Images1/P003.jpg",
+        "SKU": "P003",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "186",
+        "variants": "2",
+        "ptr": "13.00",
+        "gst": "0.00",
+        "ptrwithtax": "13.00",
+        "ptrwithschemetax": "13.00",
+        "mrp": "30",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "36",
+        "Image": "./Images1/P005.jpg",
+        "SKU": "P005",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "186",
+        "variants": "2",
+        "ptr": "15.00",
+        "gst": "0.00",
+        "ptrwithtax": "15.00",
+        "ptrwithschemetax": "15.00",
+        "mrp": "40",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "37",
+        "Image": "./Images1/P007.jpg",
+        "SKU": "P007",
+        "Category": "Powder Sindur",
+        "scheme": "",
+        "qtycarton": "186",
+        "variants": "2",
+        "ptr": "15.00",
+        "gst": "0.00",
+        "ptrwithtax": "15.00",
+        "ptrwithschemetax": "15.00",
+        "mrp": "40",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "38",
+        "Image": "./Images1/S001.jpg",
+        "SKU": "S001",
+        "Category": "Stick Sindur",
+        "scheme": "3.00%",
+        "qtycarton": "360",
+        "variants": "2",
+        "ptr": "5.00",
+        "gst": "0.00",
+        "ptrwithtax": "5.00",
+        "ptrwithschemetax": "4.85",
+        "mrp": "10",
+        "stock": "",
+        "Tax Rate": "0"
+    },
+    {
+        "S.No.": "39",
+        "Image": "./Images1/E001.jpg",
+        "SKU": "E001",
+        "Category": "Brush",
+        "scheme": "",
+        "qtycarton": "96",
+        "variants": "1",
+        "ptr": "11.02",
+        "gst": "1.98",
+        "ptrwithtax": "13.00",
+        "ptrwithschemetax": "13.00",
+        "mrp": "30",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "40",
+        "Image": "./Images1/E002.jpg",
+        "SKU": "E002",
+        "Category": "Razor",
+        "scheme": "",
+        "qtycarton": "144",
+        "variants": "1",
+        "ptr": "9.75",
+        "gst": "1.75",
+        "ptrwithtax": "11.50",
+        "ptrwithschemetax": "11.50",
+        "mrp": "40",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "41",
+        "Image": "./Images1/HC001.jpg",
+        "SKU": "HC001",
+        "Category": "Hair Color",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "9.75",
+        "gst": "1.75",
+        "ptrwithtax": "11.50",
+        "ptrwithschemetax": "11.50",
+        "mrp": "20",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "42",
+        "Image": "./Images1/HC002.jpg",
+        "SKU": "HC002",
+        "Category": "Hair Color",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "9.75",
+        "gst": "1.75",
+        "ptrwithtax": "11.50",
+        "ptrwithschemetax": "11.50",
+        "mrp": "20",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "43",
+        "Image": "./Images1/HC003.jpg",
+        "SKU": "HC003",
+        "Category": "Hair Color",
+        "scheme": "",
+        "qtycarton": "72",
+        "variants": "1",
+        "ptr": "9.75",
+        "gst": "1.75",
+        "ptrwithtax": "11.50",
+        "ptrwithschemetax": "11.50",
+        "mrp": "20",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "44",
+        "Image": "./Images1/SK001.jpg",
+        "SKU": "SK001",
+        "Category": "Sticker Kum Kum",
+        "scheme": "",
+        "qtycarton": "24 Boxes",
+        "variants": "30",
+        "ptr": "3.20",
+        "gst": "0.58",
+        "ptrwithtax": "3.78",
+        "ptrwithschemetax": "3.78",
+        "mrp": "7",
+        "stock": "",
+        "Tax Rate": "0.18"
+    },
+    {
+        "S.No.": "45",
+        "Image": "./Images1/SK002.jpg",
+        "SKU": "SK002",
+        "Category": "Sticker Kum Kum",
+        "scheme": "",
+        "qtycarton": "24 Boxes",
+        "variants": "30",
+        "ptr": "5.51",
+        "gst": "0.99",
+        "ptrwithtax": "6.50",
+        "ptrwithschemetax": "6.50",
+        "mrp": "12",
+        "stock": "",
+        "Tax Rate": "0.18"
+    }
+];
+
+        // Function to load products into the table
+        function loadProducts() {
+            const tableBody = document.getElementById("productTableBody");
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            products.forEach((product, index) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td class="S-No">${index + 1}</td>
+                    <td class="image-col"><img src="${product.Image}" alt="Product ${index + 1}"></td>
+                    <td class="sku-col">${product.SKU}</td>
+                    <td class="category-col">${product.Category}</td>
+                    <td class="tester-col">${product.scheme}</td>
+                    <td class="carton-col">${product.qtycarton}</td>
+                    <td class="variant-col">${product.variants}</td>
+                    <td class="price-col">${product.ptr}</td>
+                    <td class="gst-col">${product.gst}</td>
+                    <td class="ptrwithtax-col">${product.ptrwithtax}</td>
+                    <td class="netprice-col">${product.ptrwithschemetax}</td>
+                    <td class="mrp-col">${product.mrp}</td>
+                    <td class="stock-col">${product.stock}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call loadProducts to populate table on page load
+        window.onload = loadProducts;
+
+        function filterTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById("productTable");
+            const tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName("td")[3]; // Category column
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
