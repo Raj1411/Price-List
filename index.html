@@ -1010,7 +1010,7 @@
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
-            pdf.addImage(imgData, 'JPEG', 0, 10, pdfWidth, pdfHeight);
+            pdf.addImage(imgData, 'JPEG', 0, 5, pdfWidth, pdfHeight);
         });
 
         // Manually add images to the PDF
