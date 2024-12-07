@@ -15,32 +15,6 @@
         }
 
 
-
-        /* Styling for table, buttons, and download */
-        .download-container {
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .download-btn {
-            background-color: #0F52BA;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background-color: #ffcc99;
-            color: #333;
-        }
-
-
-
         
 
         /* Responsive Adjustments */
@@ -243,14 +217,10 @@
         /* Image styling */
         .image-col img {
             width: 100%;
-            height: auto;
+            /* height: auto;
             max-width: 100%; */
         }
     </style>
-
-    <!-- Include jsPDF and html2canvas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     
 </head>
@@ -288,10 +258,6 @@
     </div>
 
 
-    <!-- Download PDF Button -->
-    <div class="download-container">
-        <button class="download-btn" onclick="generatePDF()">Download PDF</button>
-    </div>
 
     <!-- Product table -->
     <table id="productTable">
@@ -976,64 +942,7 @@
         }
 
 
-    async function generatePDF() {
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF();
-    const table = document.getElementById('productTable');
-
-    if (!table) {
-        console.error('Table not found');
-        return;
-    }
-
-    const images = table.querySelectorAll('img'); // Select all images
-    const imgDataList = []; // To store image data and positions
-
-    // Temporarily hide images and capture their data
-    images.forEach((img, index) => {
-        const rect = img.getBoundingClientRect();
-        const position = {
-            x: rect.left,
-            y: rect.top,
-            width: rect.width,
-            height: rect.height,
-        };
-
-        imgDataList.push({ src: img.src, position });
-        img.style.display = 'none'; // Hide image during canvas capture
-    });
-
-    try {
-        // Generate canvas without images
-        await html2canvas(table, { scale: 2 }).then((canvas) => {
-            const imgData = canvas.toDataURL('image/jpeg');
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-            pdf.addImage(imgData, 'JPEG', 0, 5, pdfWidth, pdfHeight);
-        });
-
-        // Manually add images to the PDF
-        imgDataList.forEach((imgData, index) => {
-            pdf.addImage(
-                imgData.src,
-                'JPEG',
-                imgData.position.x,
-                imgData.position.y,
-                imgData.position.width,
-                imgData.position.height
-            );
-        });
-
-        pdf.save('Price_List_With_Images.pdf');
-    } catch (error) {
-        console.error('Error generating PDF:', error);
-    } finally {
-        // Restore images
-        images.forEach((img) => (img.style.display = ''));
-    }
-}
-
+    
 
         
     </script>
