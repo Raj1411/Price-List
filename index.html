@@ -175,16 +175,18 @@
         table {
             width: 90%;
             border-collapse: collapse;
-            margin: 0 auto;
+            margin: 20px
+/*             margin: 0 auto; */
             text-align: center;
             table-layout: fixed;
         }
         
         th, td {
             border: 1px solid #000000;
-            padding: 0px;
+            padding: 8px
+/*             padding: 0px; */
             text-align: center;
-            overflow: auto;
+/*             overflow: auto; */
         }   
         th {
             background-color: #C65911;
@@ -202,8 +204,19 @@
             width: 5%;
         }
         .image-col {
-            width: 15%;
+            max-width: 100%;
+            height: auto;
+/*             width: 15%; */
         }
+
+        @media screen and (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            
         .variant-col {
             width: 20%
         }
